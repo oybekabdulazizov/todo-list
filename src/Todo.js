@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Todo.css';
 
 class Todo extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Todo extends Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.toggleEditForm = this.toggleEditForm.bind(this);
+        this.toggleCompletion = this.toggleCompletion.bind(this);
     }
 
     handleRemove(evt) {
@@ -20,11 +22,11 @@ class Todo extends Component {
 
     handleEdit(evt) {
         evt.preventDefault();
-        // todo: call the edit method passed through the props
+
         if (this.state.task) {
             this.props.editTodo(this.props.id, this.state.task);
         }
-        // todo: toggle the form after the edit has been saved
+
         this.toggleEditForm();
     }
 
@@ -34,38 +36,42 @@ class Todo extends Component {
         }));
     } 
 
+    toggleCompletion(evt) {
+        this.props.completeTodo(this.props.id);
+    }
+
     toggleEditForm() {
         this.setState(currState => ({ 
             isEditing: !currState.isEditing
          }));
     }
 
-    render() {
-        let result;
+    renderedResult() {
+        let classCompleted = (this.props.completed ? "completed" : "");
         if (this.state.isEditing) {
-            result = 
-            <div>
-                <form onSubmit={this.handleEdit}>
-                    <input
-                        name="task" 
-                        id="task" 
-                        value={this.state.task} 
-                        onChange={this.handleChange}
-                    />
-                    <button>Save</button>
-                </form>    
-            </div>;
+            return <div>
+                    <form onSubmit={this.handleEdit}>
+                        <input
+                            name="task"
+                            id="task"
+                            value={this.state.task}
+                            onChange={this.handleChange}
+                        />
+                        <button>Save</button>
+                    </form>
+                </div>;
         } else {
-            result = 
-            <div>
-                {this.props.task}
-                <button onClick={this.toggleEditForm}>Edit</button>
-                <button onClick={this.handleRemove}>Remove</button>
-            </div>
+            return <div>
+                    <li onClick={this.toggleCompletion} className={classCompleted}>{this.props.task}</li>
+                    <button onClick={this.toggleEditForm}>Edit</button>
+                    <button onClick={this.handleRemove}>Remove</button>
+                </div>
         }
+    }
 
+    render() {
         return (
-            result
+            this.renderedResult()
         )
     }
 }

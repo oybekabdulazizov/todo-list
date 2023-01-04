@@ -8,9 +8,11 @@ class TodoList extends Component {
         this.state = {
             todos: []
         };
+        
         this.add = this.add.bind(this);
         this.remove = this.remove.bind(this);
         this.edit = this.edit.bind(this);
+        this.complete = this.complete.bind(this);
     }
 
     add(newTodo) {
@@ -38,14 +40,29 @@ class TodoList extends Component {
         }));
     }
 
+    complete(id) {
+        const completedTodos = this.state.todos.map(todo => {
+            if (todo.id === id) {
+                todo = { ...todo, completed: !todo.completed }
+            }
+            return todo;
+        });
+
+        this.setState(currState => ({
+            todos: completedTodos
+        }));
+    }
+
     renderedTodos() {
         return this.state.todos.map(todo => 
             <Todo 
                 task={todo.task} 
                 key={todo.id} 
                 id={todo.id} 
+                completed={todo.completed}
                 removeTodo={this.remove}
                 editTodo={this.edit}
+                completeTodo={this.complete}
             />
             );
     }

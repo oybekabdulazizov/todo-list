@@ -7,6 +7,7 @@ class NewTodoForm extends Component {
         this.state = {
             task: ""
         };
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -21,7 +22,7 @@ class NewTodoForm extends Component {
         evt.preventDefault();
         
         if (this.state.task) {
-            this.props.addTodo({ ...this.state, id: uuidv4() });
+            this.props.addTodo({ ...this.state, id: uuidv4(), completed: false });
         }
         
         this.setState(currState => ({
