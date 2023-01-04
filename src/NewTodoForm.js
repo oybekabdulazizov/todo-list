@@ -7,6 +7,7 @@ class NewTodoForm extends Component {
             task: ""
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(evt) {
@@ -17,9 +18,14 @@ class NewTodoForm extends Component {
 
     handleSubmit(evt) {
         evt.preventDefault();
-        // Todo: create a function to manage adding a new todo/task
         
-        // clear the form after the submission/addition 
+        if (this.state.task) {
+            this.props.addTodo({ ...this.state });
+        }
+        
+        this.setState(currState => ({
+            task: ""
+        }));
     }
 
     render() {

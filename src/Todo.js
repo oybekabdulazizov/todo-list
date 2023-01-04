@@ -4,9 +4,7 @@ class Todo extends Component {
     render() {
         return (
             <div>
-                <li>Read a page</li>
-                <li>Go for a walk</li>
-                <li>Drink 3L of water</li>
+                {this.props.task}
             </div>
         )
     }
