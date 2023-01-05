@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Todo.css';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class Todo extends Component {
     constructor(props) {
@@ -64,8 +67,8 @@ class Todo extends Component {
             return <div className="Todo">
                     <li onClick={this.toggleCompletion} className={classCompleted}>{this.props.task}</li>
                     <div>
-                        <button className="Todo-btn" onClick={this.toggleEditForm}>Edit</button>
-                        <button className="Todo-btn" onClick={this.handleRemove}>Remove</button>
+                        <button className="Todo-btn" onClick={this.toggleEditForm}><FontAwesomeIcon className="icon" icon={faPen} /></button>
+                        <button className="Todo-btn" onClick={this.handleRemove}><FontAwesomeIcon className="icon" icon={faTrash} /></button>
                     </div>
                 </div>
         }

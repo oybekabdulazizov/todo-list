@@ -4,7 +4,6 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
 
     font-size: 1.2rem;
@@ -15,10 +14,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 
 .completed {
     color: gray;
     text-decoration: line-through;
-    transition: color 1s;
+    transition: color ease-out 1s;
+}
+
+.Todo li {
+    width: 26rem;
+}
+
+.Todo div button {
+    background: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 0 0 0 10px;
+    padding: 8px 10px;
 }
