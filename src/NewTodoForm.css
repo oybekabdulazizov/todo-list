@@ -1,0 +1,40 @@
+.NewTodoForm {
+    padding: .5rem 0;
+    margin: 0 2rem 1rem 2rem;
+}
+
+.NewTodoForm form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.NewTodoForm form label {
+    font-weight: 400;
+    font-size: 1.6rem;
+    display: block;
+    margin: .5rem 0;
+}
+
+.NewTodoForm form input {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid gray;
+
+    width: 24rem;
+}
+
+.NewTodoForm form input:focus {
+    outline: none;
+}
+
+.NewTodoForm form button {
+    padding: 5px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background: none;
+    /* background-color: #90ee90; */
+}
