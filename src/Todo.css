@@ -1,4 +1,24 @@
+.Todo {
+    margin: .5rem 2rem;
+    padding: .5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.Todo div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .completed {
-    color: lightgray;
+    color: gray;
     text-decoration: line-through;
+    transition: color 1s;
 }

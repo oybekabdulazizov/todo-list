@@ -1,15 +1,15 @@
 .TodoList {
     width: 35rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, .8);
     margin: 0;
     padding: 1rem 0;
+    border-radius: 10px;
 }
 
 .TodoList-header {
-    /* background-color: teal; */
     padding: .5rem 0;
     margin: .5rem 2rem 1rem 2rem;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid gray;
 }
 
 .TodoList div h2 {
@@ -18,13 +18,8 @@
     margin: .5rem 0 .5rem 0 !important;
 }
 
-.TodoList div span {
-    font-size: 1.5rem;
-    font-weight: 400;
+.TodoList-body {
     padding: 0;
     margin: 0;
-}
-
-.TodoList-body {
-    background-color: pink ;
+    list-style: none;
 }
