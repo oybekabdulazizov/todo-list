@@ -54,13 +54,15 @@ class Todo extends Component {
         if (this.state.isEditing) {
             return <div className="Todo">
                     <form onSubmit={this.handleEdit}>
-                        <input
-                            name="task"
-                            id="task"
-                            value={this.state.task}
-                            onChange={this.handleChange}
-                        />
-                        <button>Save</button>
+                        <div>
+                            <input
+                                name="task"
+                                id="task"
+                                value={this.state.task}
+                                onChange={this.handleChange}
+                            />
+                            <button>Save</button>
+                        </div>
                     </form>
                 </div>;
         } else {
